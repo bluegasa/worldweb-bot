@@ -1,0 +1,11 @@
+program: telegram-bot
+runtime: python
+version: "3.12"
+
+env:
+  BOT_TOKEN: "8574868400:AAGfluEsJUn5FkJ3NKrzKNyeZhts3lRFcvI"
+
+install:
+  - pip install -r requirements.txt
+
+run: python -u bot.py
