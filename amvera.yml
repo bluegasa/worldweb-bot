@@ -1,9 +1,13 @@
-program: telegram-bot
+program: worldweb-bot
 runtime: python
 version: "3.12"
 
 env:
   BOT_TOKEN: "8574868400:AAGfluEsJUn5FkJ3NKrzKNyeZhts3lRFcvI"
+  YOUR_TELEGRAM: "Worlds_Web"
+  YOUR_PHONE: "+375333525727"
+  YOUR_EMAIL: "info@worldweb.by"
+  YOUR_WEBSITE: "https://worldweb.by"
 
 install:
   - pip install -r requirements.txt
