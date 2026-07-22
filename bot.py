@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+from aiohttp import web
 from aiogram import Bot, Dispatcher, F, Router
 from aiogram.types import (
     Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
@@ -849,6 +850,22 @@ async def cb_brief_pkg(cb: CallbackQuery):
 async def main():
     log.info("🤖 Бот запущен!")
     await bot.delete_webhook(drop_pending_updates=True)
+
+    # Health-check HTTP сервер для Render
+    async def health(request):
+        return web.Response(text="worldweb-bot is running ✅")
+
+    app = web.Application()
+    app.router.add_get("/", health)
+    app.router.add_get("/health", health)
+
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.getenv("PORT", 10000))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    log.info(f"📡 Health-check сервер на порту {port}")
+
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
