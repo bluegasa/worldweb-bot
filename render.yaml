@@ -7,4 +7,12 @@ services:
     envVars:
       - key: BOT_TOKEN
         sync: false
+      - key: YOUR_TELEGRAM
+        sync: false
+      - key: YOUR_PHONE
+        sync: false
+      - key: YOUR_EMAIL
+        sync: false
+      - key: YOUR_WEBSITE
+        sync: false
     plan: free
