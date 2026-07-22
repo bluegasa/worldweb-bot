@@ -1,5 +1,5 @@
 services:
-  - type: worker
+  - type: web
     name: worldweb-bot
     runtime: python
     buildCommand: pip install -r requirements.txt
@@ -8,11 +8,11 @@ services:
       - key: BOT_TOKEN
         sync: false
       - key: YOUR_TELEGRAM
-        sync: false
+        value: Worlds_Web
       - key: YOUR_PHONE
-        sync: false
+        value: +375333525727
       - key: YOUR_EMAIL
-        sync: false
+        value: info@worldweb.by
       - key: YOUR_WEBSITE
-        sync: false
+        value: https://worldweb.by
     plan: free
